@@ -153,3 +153,4 @@ app.listen(serverPort, () => {
   connectDB();
   console.log(`SWAGGER => http://localhost:${serverPort}/rest-api/`);
 });
+

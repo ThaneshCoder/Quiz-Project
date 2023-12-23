@@ -38,7 +38,7 @@ shop[1].addEventListener("click",()=>{
     }else{
         clearInterval(corosalInterval)
         main.innerHTML=loginInPage()
-        innerLoginPage()
+        innerLoginPage(Quiz,innerQuiz)
 }
 })
 
@@ -76,7 +76,7 @@ shop[2].addEventListener("click",()=>{
     }else{
         clearInterval(corosalInterval)
         main.innerHTML=loginInPage()
-        innerLoginPage()
+        innerLoginPage(Result,quizResults)
 
     }
 })

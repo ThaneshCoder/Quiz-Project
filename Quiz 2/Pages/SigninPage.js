@@ -9,7 +9,7 @@ function loginInPage(){
     
     <div class="set">
         <Label>Password</Label>
-        <input class="data" type="text" placeholder="Password Name">
+        <input class="data" type="password" placeholder="Password Name">
     </div>
     <div class="result"></div>
 
@@ -28,7 +28,7 @@ import {loginAfter} from "./index.js"
 
 var userData={};
 
-function innerLoginPage() {
+function innerLoginPage(Qhtml,Qfunction) {
     let logindata=document.querySelectorAll(".data")
     let loginresult=document.querySelectorAll(".result")
     let loginbutton=document.querySelectorAll("#signButton button")
@@ -42,8 +42,7 @@ function innerLoginPage() {
         loginresult[0].innerHTML= mailId(Luser)
         loginresult[1].innerHTML=pass(Lpassword)
 
-        // if(UN && LPW){
-            if (true){
+        if(UN && LPW){
                 console.log("hi");
                 let dataObj={
                     email:Luser,
@@ -76,9 +75,10 @@ function innerLoginPage() {
                     userData.username=res.username;
                     console.log(userData);
                     
-                    main.innerHTML=homePage();
+                    main.innerHTML=Qhtml();
+                    Qfunction(userData.id);
                     loginAfter(userData);
-                    innerHomePage();
+  
 
                 }).catch(()=>{
                     alert("Please enter correct userId and Password")

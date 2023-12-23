@@ -70,9 +70,8 @@ function innerSignuP() {
         result[4].innerHTML = pass(data[4].value)
         result[5].innerHTML = check(data[5].value)
     
-        // if(FN && LN && MN && Eid && PW && CPW){
-            if(true){
-            
+        if(FN && LN && MN && Eid && PW && CPW){
+  
             let dataObj={
                 username: data[0].value,
                 email: data[3].value,

@@ -10,8 +10,6 @@ function Result() {
    `
 }
 
-
-
 function quizResults(userid) {
 
     fetch(`http://localhost:3000/api/result/getallresults/${userid}`, {
@@ -22,10 +20,16 @@ function quizResults(userid) {
         console.log(response);
         return response.json();
     }).then((res)=>{
-        console.log(res);
-        let myQuiz=document.querySelector("#myQuiz")
+        
+        if(res.length>0){
+            let myQuiz=document.querySelector("#myQuiz")
             myQuiz.innerHTML=CreateDiv(res)
             myQuiz.style.textAlign="none"
+        }else{
+            alert("There are no Quiz to view")
+            alert("Please Attend Quiz")
+        }
+
     })
 }
 
@@ -38,7 +42,5 @@ function CreateDiv(res) {
     <div>Correct Answer : ${res[0].correctAnswers}</div>
     `
 }
-
-
 
 export {Result,quizResults}

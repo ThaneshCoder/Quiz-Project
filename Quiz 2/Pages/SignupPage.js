@@ -79,6 +79,8 @@ function innerSignuP() {
               }
             let jsonObj=JSON.stringify(dataObj)
             let baseURL="http://localhost:3000/api"
+
+            console.log("Validation ok");
     
             fetch(`${baseURL}/auth/signup`,{
                 method:"POST",
@@ -88,6 +90,7 @@ function innerSignuP() {
                 },
                 body:jsonObj,
             }).then((e)=>{
+                console.log(e);
                 if (e.ok) {
                     return e.json()
                     }else{

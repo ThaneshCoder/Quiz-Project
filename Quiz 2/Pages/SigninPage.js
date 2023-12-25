@@ -20,9 +20,7 @@ function loginInPage(){
 </form>`
 }
 
-import {pass,mailId} from "./FormValidationFunction.js"
-
-import {homePage,innerHomePage} from "./index.js"
+import {pass,mailId,UN,LPW} from "./FormValidationFunction.js"
 
 import {loginAfter} from "./index.js"
 
@@ -33,14 +31,20 @@ function innerLoginPage(Qhtml,Qfunction) {
     let loginresult=document.querySelectorAll(".result")
     let loginbutton=document.querySelectorAll("#signButton button")
 
+
+
+
+
     loginbutton[1].addEventListener("click",(eve)=>{
 
         eve.preventDefault()
+        
         let Luser=logindata[0].value
         let Lpassword=logindata[1].value
-    
         loginresult[0].innerHTML= mailId(Luser)
         loginresult[1].innerHTML=pass(Lpassword)
+    
+        console.log("UN is "+UN+"  LPW is "+LPW);
 
         if(UN && LPW){
                 console.log("hi");
@@ -73,12 +77,10 @@ function innerLoginPage(Qhtml,Qfunction) {
                     console.log(res);
                     userData.id=res.id;
                     userData.username=res.username;
-                    console.log(userData);
-                    
+
                     main.innerHTML=Qhtml();
                     Qfunction(userData.id);
                     loginAfter(userData);
-  
 
                 }).catch(()=>{
                     alert("Please enter correct userId and Password")

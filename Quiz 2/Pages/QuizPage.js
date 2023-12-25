@@ -68,7 +68,13 @@ function innerQuiz() {
 }
 
 function AI(que,classIndex,index) {
-    return `<div class="option"><input type="radio" name="s${classIndex}" value="${index}" >${que.choice}</div>`
+    let critical=que.choice
+    if(critical.includes("<")){
+        critical=critical.replace("<","&lt")
+        critical=critical.replace(">","&gt")
+    }
+
+    return `<div class="option"><input id="s${classIndex}a${index}" type="radio" name="s${classIndex}" value="${index}"><label for="s${classIndex}a${index}">${critical}</label></div>`
 }
 
 async function quizStart(quizId) {
@@ -110,6 +116,7 @@ async function quizStart(quizId) {
                 let option=document.createElement("div")
                 questTotal.appendChild(option)
                 option.innerHTML=AI(que,classIndex,index)
+                console.log(AI(que,classIndex,index));
                 
             });     
         })

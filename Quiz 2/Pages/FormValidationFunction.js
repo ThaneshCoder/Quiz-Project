@@ -1,5 +1,3 @@
-
-
 let FN = false;
 let LN = false;
 let MN = false;
@@ -9,8 +7,8 @@ let CPW = false;
 let UN = false;
 let LPW = false;
 
-
 function firstName(a) {
+    FN = false;
     if(a.length>1){
     for (let i = 1; i < a.length; i++) {
         let c=a.charCodeAt(i)
@@ -36,6 +34,7 @@ function firstName(a) {
 }
 
 function lastName(a) {
+    LN = false;
     if(a.length!=0){
     }else{
         return "The lastName should not be empty"
@@ -48,6 +47,7 @@ function lastName(a) {
 }
 
 function mobileNo(a) {
+    MN = false;
     if(a.length>0){
         let b=(Number)(a)
 
@@ -62,9 +62,15 @@ function mobileNo(a) {
 }
 
 function mailId(a) {
+    Eid = false;
+    UN = false;
+    function containsOnlyLowerCase(str) {
+        return str === str.toLowerCase();
+      }
+
     if(a.length!=0){
 
-    if(a.endsWith(".com") && a.includes("@")){
+    if(a.endsWith(".com") && a.includes("@")&&containsOnlyLowerCase(a)){
         Eid=true;
         UN = true;
         return ""
@@ -77,6 +83,8 @@ function mailId(a) {
 
 let original="";
 function pass(a) {
+    PW = false
+    LPW = false
     if(a.length!=0){
         let cc=0;
         let lc=0;
@@ -116,6 +124,7 @@ function pass(a) {
 }
 
 function check(a) {
+    CPW = false
     if(a.length!=0){
     if(original==a){
         CPW=true;

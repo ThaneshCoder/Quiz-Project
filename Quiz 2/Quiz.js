@@ -53,7 +53,7 @@ shop[3].addEventListener("click",()=>{
         clearInterval(corosalInterval)
         console.log("About to signing In");
         main.innerHTML=loginInPage()
-        innerLoginPage()
+        innerLoginPage(homePage,innerHomePage)
     }
 })
 
